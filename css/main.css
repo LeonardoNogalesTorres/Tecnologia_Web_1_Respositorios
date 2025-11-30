@@ -1,0 +1,123 @@
+/*
+ * Diseño para css/main.css
+ * Basado en una paleta de colores profesional.
+ */
+
+/* Variables de Color */
+:root {
+  --color-primario: #004d99; /* Azul UPDS o Tecnológico */
+  --color-secundario: #f4f4f9; /* Fondo claro/Gris muy claro */
+  --color-texto-principal: #333333; /* Gris Oscuro para mejor lectura */
+  --color-enlace: #007acc; /* Azul más brillante para enlaces */
+  --color-enlace-hover: #005f99; /* Azul más oscuro al pasar el ratón */
+  --color-header-footer: #393e46; /* Gris Oscuro para barras */
+}
+
+/* Reset Básico (Complementa normalize.css) */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  background-color: var(--color-secundario);
+  color: var(--color-texto-principal);
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor Principal para centrar el contenido */
+#contenedor-principal {
+  max-width: 960px; /* Ancho máximo estándar para escritorio */
+  margin: 0 auto; /* Centra el div */
+  padding: 20px;
+  background-color: white; /* Contenido sobre fondo blanco */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Encabezado */
+header {
+  text-align: center;
+  padding: 20px 0;
+  background-color: var(--color-header-footer);
+  color: white;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+header img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* Foto de perfil circular */
+  border: 5px solid white; /* Borde blanco alrededor de la imagen */
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+/* Contenido Principal */
+main {
+  padding: 20px 0;
+}
+
+main h2 {
+  color: var(--color-primario);
+  border-bottom: 2px solid var(--color-primario);
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+
+.subtitulo {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Lista de Asignaciones */
+.lista-asignaciones {
+  list-style: none; /* Eliminar viñetas por defecto */
+  padding: 0;
+}
+
+.lista-asignaciones li {
+  background-color: #eaf2f8; /* Fondo claro para cada elemento de la lista */
+  border-left: 5px solid var(--color-primario);
+  margin-bottom: 10px;
+  padding: 15px;
+  transition: background-color 0.3s;
+}
+
+.lista-asignaciones li:hover {
+  background-color: #d6eaf8; /* Cambio de color al pasar el ratón */
+}
+
+/* Estilo de Enlaces */
+a {
+  color: var(--color-enlace);
+  text-decoration: none; /* Quitar subrayado por defecto */
+  font-weight: bold;
+}
+
+a:hover {
+  color: var(--color-enlace-hover);
+  text-decoration: underline; /* Mostrar subrayado al pasar el ratón */
+}
+
+/* Pie de Página */
+footer {
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 30px;
+  background-color: var(--color-header-footer);
+  color: #cccccc; /* Texto gris claro en fondo oscuro */
+  font-size: 0.9em;
+  width: 100%; /* Asegura que ocupe todo el ancho */
+}
+
+footer a {
+  color: #cccccc;
+}
+
+footer a:hover {
+  color: white;
+}
