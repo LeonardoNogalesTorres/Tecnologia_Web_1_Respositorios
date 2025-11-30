@@ -57,10 +57,15 @@ header img {
 
 /* Contenido Principal */
 main {
+  text-align: center;
   padding: 20px 0;
+  display: flex; /* Habilita el modelo Flexbox */
+  flex-direction: column; /* Apila los elementos verticalmente (h2, p, ul) */
+  align-items: center;
 }
 
 main h2 {
+  text-align: center;
   color: var(--color-primario);
   border-bottom: 2px solid var(--color-primario);
   padding-bottom: 10px;
@@ -71,6 +76,7 @@ main h2 {
   font-style: italic;
   color: #666;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 /* Lista de Asignaciones */
