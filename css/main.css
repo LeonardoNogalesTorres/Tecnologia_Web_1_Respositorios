@@ -10,7 +10,7 @@
   --color-texto-principal: #333333; /* Gris Oscuro para mejor lectura */
   --color-enlace: #007acc; /* Azul más brillante para enlaces */
   --color-enlace-hover: #005f99; /* Azul más oscuro al pasar el ratón */
-  --color-header-footer: #393e46; /* Gris Oscuro para barras */
+  --color-header-footer: #1c345a; /* Gris Oscuro para barras */
 }
 
 /* Reset Básico (Complementa normalize.css) */
