@@ -1,5 +1,5 @@
 /* ---------------------------------------------------- */
-/* ESTILOS GENERALES Y FONDO SVG              */
+/* ESTILOS GENERALES Y FONDO SVG              */
 /* ---------------------------------------------------- */
 
 /* Estilos aplicados a todo el cuerpo de la página */
@@ -39,7 +39,7 @@ body {
 }
 
 /* ---------------------------------------------------- */
-/* ESTILOS DE FUENTES                 */
+/* ESTILOS DE FUENTES                 */
 /* ---------------------------------------------------- */
 
 .titulo {
@@ -61,7 +61,7 @@ body {
 }
 
 /* ---------------------------------------------------- */
-/* ESTILOS DE CAJAS Y ELEMENTOS             */
+/* ESTILOS DE CAJAS Y ELEMENTOS             */
 /* ---------------------------------------------------- */
 
 .content-box {
@@ -69,8 +69,8 @@ body {
     border-radius: 10px;
     
     /* 📌 FUNCIÓN: Color de Fondo con Transparencia (RGBA) */
-    /* Color blanco con un 80% de opacidad (0.8) - Se puede ver el fondo SVG/Gradiente a través */
-    background-color: rgba(255, 255, 255, 0.8); 
+    /* Color blanco con un 40% de opacidad (0.4) - Se puede ver el fondo SVG/Gradiente a través */
+    background-color: rgba(255, 255, 255, 0.4); 
     color: #333;
 }
 
@@ -82,7 +82,7 @@ body {
 }
 
 /* ---------------------------------------------------- */
-/* ESTILO DE BOTÓN                     */
+/* ESTILO DE BOTONES                     */
 /* ---------------------------------------------------- */
 
 .gradient-button {
@@ -106,4 +106,47 @@ body {
 .gradient-button:hover {
     /* Al pasar el ratón, el botón se vuelve ligeramente transparente (0.9 de opacidad) */
     opacity: 0.9;
+}
+
+/* ---------------------------------------------------- */
+/* ESTILOS DEL BOTÓN DE MENÚ PRINCIPAL          */
+/* ---------------------------------------------------- */
+
+.menu-button-container {
+    text-align: center; /* Centra el botón */
+    margin-bottom: 30px; /* Separación después del botón y antes del título */
+    margin-top: -10px; /* Sube un poco para no chocar con el borde del main-container */
+}
+
+.menu-button {
+    display: inline-block;
+    padding: 12px 25px;
+    
+    /* 📌 FUNCIÓN: Gradiente y color que complementa el fondo principal (azul/púrpura) */
+    background: linear-gradient(90deg, #6a82fb 0%, #fc5c7d 100%); 
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+    
+    /* 📌 FUNCIÓN: Sombra elegante y efecto 3D sutil */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    border: 2px solid #ffffff; /* Borde blanco para resaltar */
+
+    transition: all 0.2s ease;
+}
+
+.menu-button:hover {
+    /* Efecto al pasar el ratón: Escala sutil y cambio de opacidad */
+    transform: scale(1.03);
+    opacity: 0.95;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.menu-button:active {
+    /* Efecto al hacer clic: 'Presionar' el botón */
+    transform: scale(1.0);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
