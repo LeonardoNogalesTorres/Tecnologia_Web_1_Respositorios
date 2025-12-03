@@ -1,33 +1,74 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>Tecnologia Web I - Portal de Asignaciones | Nombre | UPDS - Cbba.</title>
-  <meta name="description" content="Pagina de portal de asignaciones Leonardo Nogales Torres para la materia de tecnologia web en UPDS">
+  <meta name="description"
+    content="Pagina de portal de asignaciones Leonardo Nogales Torres para la materia de tecnologia web en UPDS">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
   <header>
     <h1>Estudiante: Leonardo Nogales Torres</h1>
     <img src="imagenes/perfil_1.jpg" alt="My Profile Picture">
-  </header> 
+  </header>
   <main>
     <h2>Tecnología Web - Portal de Asignaciones</h2>
     <ul>
       <p class="subtitulo">Asignaciones disponibles para la materia.</p>
-      <li> Practica 1:<a href="#">Servidor Web </a></li> 
+      <li> Practica 1:<a href="#" id="openPdf1">Servidor Web
+        </a></li>
       <li> Practica 2:<a href="#">P2 </a></li>
     </ul>
-    
-  </main> 
- 
+
+  </main>
+
   <footer>
     <p>
-      &copy;2025 Leonardo Nogales Torres - Ubicabión: Cbba-Bolivia  
+      &copy;2025 Leonardo Nogales Torres - Ubicabión: Cbba-Bolivia
       <a href="http://www.upds.edu.bo/"> UPDS - Cbba.</a>
     </p>
   </footer>
+
 </body>
+<div id="pdfModal">
+  <span id="closeModal">&times;</span>
+  <div id="pdfContent">
+    <iframe src="docs/Práctica_1_Servidor_Web_Leonardo.pdf"></iframe>
+  </div>
+</div>
+<script>
+  const openPdfBtn = document.getElementById('openPdf1');
+  const pdfModal = document.getElementById('pdfModal');
+  const pdfContent = document.getElementById('pdfContent');
+  const closeModal = document.getElementById('closeModal');
+
+  openPdfBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    pdfModal.style.display = 'flex';
+    setTimeout(() => {
+      pdfModal.style.opacity = '1';
+      pdfContent.style.transform = 'scale(1)';
+    }, 10);
+  });
+
+  function cerrarModal() {
+    pdfModal.style.opacity = '0';
+    pdfContent.style.transform = 'scale(0.8)';
+    setTimeout(() => { pdfModal.style.display = 'none'; }, 300);
+  }
+
+  closeModal.addEventListener('click', cerrarModal);
+
+  window.addEventListener('click', function (e) {
+    if (e.target == pdfModal) {
+      cerrarModal();
+    }
+  });
+</script>
+
 </html>
