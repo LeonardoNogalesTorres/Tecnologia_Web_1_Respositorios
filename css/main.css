@@ -5,12 +5,18 @@
 
 /* Variables de Color */
 :root {
-  --color-primario: #004d99; /* Azul UPDS o Tecnológico */
-  --color-secundario: #f4f4f9; /* Fondo claro/Gris muy claro */
-  --color-texto-principal: #333333; /* Gris Oscuro para mejor lectura */
-  --color-enlace: #007acc; /* Azul más brillante para enlaces */
-  --color-enlace-hover: #005f99; /* Azul más oscuro al pasar el ratón */
-  --color-header-footer: #1c345a; /* Gris Oscuro para barras */
+  --color-primario: #004d99;
+  /* Azul UPDS o Tecnológico */
+  --color-secundario: #f4f4f9;
+  /* Fondo claro/Gris muy claro */
+  --color-texto-principal: #333333;
+  /* Gris Oscuro para mejor lectura */
+  --color-enlace: #007acc;
+  /* Azul más brillante para enlaces */
+  --color-enlace-hover: #005f99;
+  /* Azul más oscuro al pasar el ratón */
+  --color-header-footer: #1c345a;
+  /* Gris Oscuro para barras */
 }
 
 /* Reset Básico (Complementa normalize.css) */
@@ -25,15 +31,20 @@ body {
 
 /* Contenedor Principal para centrar el contenido */
 #contenedor-principal {
-  max-width: 960px; /* Ancho máximo estándar para escritorio */
-  margin: 0 auto; /* Centra el div */
+  max-width: 960px;
+  /* Ancho máximo estándar para escritorio */
+  margin: 0 auto;
+  /* Centra el div */
   padding: 20px;
-  background-color: white; /* Contenido sobre fondo blanco */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  background-color: white;
+  /* Contenido sobre fondo blanco */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Sombra ligera */
 }
 
 /* Encabezado */
 header {
+  height: 30vh;
   text-align: center;
   padding: 20px 0;
   background-color: var(--color-header-footer);
@@ -49,8 +60,10 @@ header h1 {
 header img {
   width: 150px;
   height: 150px;
-  border-radius: 50%; /* Foto de perfil circular */
-  border: 5px solid white; /* Borde blanco alrededor de la imagen */
+  border-radius: 50%;
+  /* Foto de perfil circular */
+  border: 5px solid white;
+  /* Borde blanco alrededor de la imagen */
   object-fit: cover;
   margin-top: 10px;
 }
@@ -59,9 +72,12 @@ header img {
 main {
   text-align: center;
   padding: 20px 0;
-  display: flex; /* Habilita el modelo Flexbox */
-  flex-direction: column; /* Apila los elementos verticalmente (h2, p, ul) */
+  display: flex;
+  /* Habilita el modelo Flexbox */
+  flex-direction: column;
+  /* Apila los elementos verticalmente (h2, p, ul) */
   align-items: center;
+  height: 47vh;
 }
 
 main h2 {
@@ -81,12 +97,14 @@ main h2 {
 
 /* Lista de Asignaciones */
 .lista-asignaciones {
-  list-style: none; /* Eliminar viñetas por defecto */
+  list-style: none;
+  /* Eliminar viñetas por defecto */
   padding: 0;
 }
 
 .lista-asignaciones li {
-  background-color: #eaf2f8; /* Fondo claro para cada elemento de la lista */
+  background-color: #eaf2f8;
+  /* Fondo claro para cada elemento de la lista */
   border-left: 5px solid var(--color-primario);
   margin-bottom: 10px;
   padding: 15px;
@@ -94,19 +112,22 @@ main h2 {
 }
 
 .lista-asignaciones li:hover {
-  background-color: #d6eaf8; /* Cambio de color al pasar el ratón */
+  background-color: #d6eaf8;
+  /* Cambio de color al pasar el ratón */
 }
 
 /* Estilo de Enlaces */
 a {
   color: var(--color-enlace);
-  text-decoration: none; /* Quitar subrayado por defecto */
+  text-decoration: none;
+  /* Quitar subrayado por defecto */
   font-weight: bold;
 }
 
 a:hover {
   color: var(--color-enlace-hover);
-  text-decoration: underline; /* Mostrar subrayado al pasar el ratón */
+  text-decoration: underline;
+  /* Mostrar subrayado al pasar el ratón */
 }
 
 /* Pie de Página */
@@ -115,9 +136,10 @@ footer {
   padding: 15px 0;
   margin-top: 30px;
   background-color: var(--color-header-footer);
-  color: #cccccc; /* Texto gris claro en fondo oscuro */
+  color: #cccccc;
   font-size: 0.9em;
-  width: 100%; /* Asegura que ocupe todo el ancho */
+  width: 100%;
+  bottom: 0;
 }
 
 footer a {
@@ -126,4 +148,60 @@ footer a {
 
 footer a:hover {
   color: white;
+}
+
+/* Modal contenedor */
+#pdfModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+#pdfContent {
+  position: relative;
+  width: 95%;
+  max-width: 1100px;
+  height: 90%;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+/* Botón de cierre */
+#closeModal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 40px;
+  font-weight: 700;
+  color: #f1f1f1;
+  background: rgba(3, 3, 3, 0);
+  padding: 8px 12px;
+  cursor: pointer;
+  z-index: 1001;
+  transition: all 0.3s ease;
+}
+
+#closeModal:hover {
+  color: #ebebeb;
+  background: rgba(5, 5, 5, 0);
+  transform: scale(1.5);
+}
+
+#pdfContent iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
