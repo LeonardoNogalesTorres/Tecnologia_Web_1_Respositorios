@@ -1,0 +1,152 @@
+/* ---------------------------------------------------- */
+/* ESTILOS GENERALES Y FONDO SVG              */
+/* ---------------------------------------------------- */
+
+/* Estilos aplicados a todo el cuerpo de la página */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* 📌 FUNCIÓN: Fondo SVG (Sacado de una URL) */
+    /* Se usa una URL de una imagen SVG genérica como fondo */
+    background-image: url('topography.svg');
+    background-repeat: repeat; /* Para que el patrón se repita */
+    background-size: 200px; /* Para que el patrón sea visible */
+    color:#090df1;
+    background-color: #79dd79; /* Color de fondo de reserva si el SVG no carga */
+    
+    /* 📌 FUNCIÓN: Color de texto general */
+    /* Fuente de contenido para todo el body, y color de texto sólido */
+    font-family: 'Lato', sans-serif;
+    color: #333333; 
+}
+
+/* Contenedor principal para centrar el contenido y aplicar gradiente */
+.main-container {
+    width: 80%;
+    max-width: 900px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+
+    /* 📌 FUNCIÓN: Gradiente de Fondo */
+    /* Gradiente lineal que va de un azul oscuro a un púrpura (usado en el contenedor principal) */
+    background: linear-gradient(135deg, #1e3c72 0%, #395586 100%); 
+}
+
+/* ---------------------------------------------------- */
+/* ESTILOS DE FUENTES                 */
+/* ---------------------------------------------------- */
+
+.titulo {
+    /* 📌 FUNCIÓN: Fuente Personalizada para Título */
+    /* Se aplica la fuente 'Oswald' de Google Fonts con un peso de 700 */
+    font-family: 'Oswald', sans-serif;
+    font-size: 3em;
+    text-align: center;
+    color: #ffffff; /* Color de texto sólido para el título */
+    margin-bottom: 30px;
+}
+
+.content-box p {
+    /* 📌 FUNCIÓN: Fuente Personalizada para Contenido */
+    /* Se aplica la fuente 'Lato' con un peso de 400 */
+    font-family: 'Lato', sans-serif; 
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+/* ---------------------------------------------------- */
+/* ESTILOS DE CAJAS Y ELEMENTOS             */
+/* ---------------------------------------------------- */
+
+.content-box {
+    padding: 25px;
+    border-radius: 10px;
+    
+    /* 📌 FUNCIÓN: Color de Fondo con Transparencia (RGBA) */
+    /* Color blanco con un 40% de opacidad (0.4) - Se puede ver el fondo SVG/Gradiente a través */
+    background-color: rgba(255, 255, 255, 0.4); 
+    color: #333;
+}
+
+.acento {
+    /* 📌 FUNCIÓN: Color sólido de acento */
+    /* Ejemplo de color sólido directo (hexadecimal) */
+    color: #ff9900; 
+    font-weight: bold;
+}
+
+/* ---------------------------------------------------- */
+/* ESTILO DE BOTONES                     */
+/* ---------------------------------------------------- */
+
+.gradient-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+    
+    /* 📌 FUNCIÓN: Gradiente de color en botón */
+    /* Gradiente lineal que va de un verde lima a un verde esmeralda */
+    background: linear-gradient(45deg, #a7ff83 0%, #1ac970 100%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    /* 📌 FUNCIÓN: Transparencia en el efecto hover (opcional, para demostrar opacidad) */
+    transition: opacity 0.3s ease;
+}
+
+.gradient-button:hover {
+    /* Al pasar el ratón, el botón se vuelve ligeramente transparente (0.9 de opacidad) */
+    opacity: 0.9;
+}
+
+/* ---------------------------------------------------- */
+/* ESTILOS DEL BOTÓN DE MENÚ PRINCIPAL          */
+/* ---------------------------------------------------- */
+
+.menu-button-container {
+    text-align: center; /* Centra el botón */
+    margin-bottom: 30px; /* Separación después del botón y antes del título */
+    margin-top: -10px; /* Sube un poco para no chocar con el borde del main-container */
+}
+
+.menu-button {
+    display: inline-block;
+    padding: 12px 25px;
+    
+    /* 📌 FUNCIÓN: Gradiente y color que complementa el fondo principal (azul/púrpura) */
+    background: linear-gradient(90deg, #6a82fb 0%, #fc5c7d 100%); 
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+    
+    /* 📌 FUNCIÓN: Sombra elegante y efecto 3D sutil */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    border: 2px solid #ffffff; /* Borde blanco para resaltar */
+
+    transition: all 0.2s ease;
+}
+
+.menu-button:hover {
+    /* Efecto al pasar el ratón: Escala sutil y cambio de opacidad */
+    transform: scale(1.03);
+    opacity: 0.95;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.menu-button:active {
+    /* Efecto al hacer clic: 'Presionar' el botón */
+    transform: scale(1.0);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
