@@ -1,41 +1,235 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página con Estilos Avanzados</title>
-    
-    <!-- Se mantiene la carga de fuentes originales -->
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oswald:wght@700&display=swap" rel="stylesheet">
-    
-    <!-- Se asume que este es tu archivo CSS existente -->
-    <link rel="stylesheet" href="styles.css">
+    <title>Práctica 2 - Funciones y Clases JavaScript</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
 
-    <div class="main-container">
-        
-        <h1 class="titulo">Estilos Increíbles con CSS</h1>
-        
-        <!-- Nuevo Botón para Volver al Menú Principal -->
-        <!-- Usamos un div para centrarlo si es necesario, pero un <a> simple es suficiente para la funcionalidad -->
-        <div class="menu-button-container">
-            <a href="../index.html" class="menu-button">Volver al Menú Principal</a>
-        </div>
-        
-        <div class="content-box">
-            <p>
-                Este es el contenido principal. Se utiliza la fuente **Lato** para el texto, y esta caja tiene un fondo con **transparencia** (usando RGBA).
-            </p>
-            
-            <button class="gradient-button">Botón con Gradiente</button>
+    <a href="../index.html" class="boton-regreso">← Volver a la Página Principal </a>
 
-            <p class="acento">
-                Este párrafo utiliza un color de texto sólido de acento.
-            </p>
-        </div>
+    <h1>Práctica 2: Fundamentos de JavaScript</h1>
 
+    <div class="ejercicio">
+        <h2>1. Lector de Clima por Temperatura</h2>
+        <label for="tempInput">Ingrese Temperatura (°C):</label>
+        <input type="number" id="tempInput" value="20">
+        <button onclick="mostrarClima()">Ver Clima</button>
+        <div class="resultado" id="climaResultado"></div>
     </div>
 
+    <div class="ejercicio">
+        <h2>2. Algoritmo Fizz-Buzz (1 al 100)</h2>
+        <button onclick="mostrarFizzBuzz()">Ejecutar Fizz-Buzz</button>
+        <div class="resultado" id="fizzBuzzResultado"></div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>3. Fecha Actual</h2>
+        <button onclick="mostrarFecha()">Mostrar Fecha</button>
+        <div class="resultado" id="fechaResultado"></div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>4. Objeto 'lugarTuristico'</h2>
+        <button onclick="probarLugarTuristico()">Probar Métodos</button>
+        <div class="resultado" id="lugarTuristicoResultado"></div>
+    </div>
+
+    <div class="ejercicio">
+        <h2>5. Clase 'Hotel' (Interactivo)</h2>
+
+        <div style="margin-bottom: 15px;">
+            <label for="cantidadHab">Cantidad de habitaciones:</label>
+            <input type="number" id="cantidadHab" value="1" min="1" style="width: 80px; margin-right: 15px;">
+
+            <button onclick="ejecutarMetodo('reservar')">Reservar</button>
+            <button onclick="ejecutarMetodo('liberar')">Liberar</button>
+            <button onclick="ejecutarMetodo('info')">Mostrar INFO</button>
+        </div>
+
+        <div class="resultado" id="hotelResultado">
+        </div>
+    </div>
+
+    <script>
+
+        function leerTemperatura(temp) {
+            if (temp >= -10 && temp <= 15) {
+                return "Frio";
+            } else if (temp >= 16 && temp <= 25) {
+                return "Templado";
+            } else if (temp >= 26 && temp <= 40) {
+                return "Calor";
+            } else {
+                return "Temperatura fuera de rango (-10°C a 40°C)";
+            }
+        }
+
+        function mostrarClima() {
+            const temp = parseFloat(document.getElementById('tempInput').value);
+            const clima = leerTemperatura(temp);
+            document.getElementById('climaResultado').innerText = `Temperatura: ${temp}°C | Clima: ${clima}`;
+        }
+
+        function fizzBuzz() {
+            let output = [];
+            for (let i = 1; i <= 100; i++) {
+                let result = "";
+                if (i % 3 === 0) {
+                    result += "Fizz";
+                }
+                if (i % 5 === 0) {
+                    result += "Buzz";
+                }
+                if (result !== "") {
+                    output.push(`Número ${i}: ${result}`);
+                }
+            }
+            return output.join('\n');
+        }
+
+        function mostrarFizzBuzz() {
+            const resultado = fizzBuzz();
+            document.getElementById('fizzBuzzResultado').innerText = resultado;
+        }
+
+        function mostrarFechaActual() {
+            const date = new Date();
+            const dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+            const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+            const diaSemana = dias[date.getDay()];
+            const diaMes = date.getDate();
+            const mes = meses[date.getMonth()];
+            const anio = date.getFullYear();
+
+            return `${diaSemana}, ${diaMes} de ${mes} del ${anio}`;
+        }
+
+        function mostrarFecha() {
+            const fecha = mostrarFechaActual();
+            document.getElementById('fechaResultado').innerText = fecha;
+        }
+
+        const lugarTuristico = {
+            nombre: "El Cristo de la Concordia",
+            ciudad: "Cochabamba",
+            precioEntrada: 15.00,
+            horario: "9:00 - 18:00",
+            calificaciones: [5, 4, 5, 3, 5],
+
+            promedioCalificaciones: function () {
+                if (this.calificaciones.length === 0) {
+                    return 0;
+                }
+                const suma = this.calificaciones.reduce((acc, curr) => acc + curr, 0);
+                return suma / this.calificaciones.length;
+            },
+
+            aplicarDescuento: function (porcentaje) {
+                const descuento = this.precioEntrada * (porcentaje / 100);
+                this.precioEntrada -= descuento;
+                if (this.precioEntrada < 0) {
+                    this.precioEntrada = 0;
+                }
+            }
+        };
+
+        function probarLugarTuristico() {
+            let resultado = `Lugar: ${lugarTuristico.nombre}\n`;
+            resultado += `Precio Inicial: ${lugarTuristico.precioEntrada.toFixed(2)} BOB\n`;
+            resultado += `Promedio de Calificaciones: ${lugarTuristico.promedioCalificaciones().toFixed(2)}\n`;
+
+            lugarTuristico.aplicarDescuento(20);
+            resultado += `\n**Luego de aplicar 20% de descuento:**\n`;
+            resultado += `Nuevo Precio de Entrada: ${lugarTuristico.precioEntrada.toFixed(2)} BOB`;
+
+            document.getElementById('lugarTuristicoResultado').innerText = resultado;
+        }
+
+        class Hotel {
+           
+            constructor(nombre, ciudad, totalHabitaciones) {
+                this.nombre = nombre;
+                this.ciudad = ciudad;
+                this.totalHabitaciones = totalHabitaciones;
+                this.habitacionesDisponibles = totalHabitaciones;
+            }
+
+            reservar(cantidad) {
+                if (typeof cantidad !== 'number' || !Number.isInteger(cantidad) || cantidad <= 0) {
+                    return ` Error: La cantidad a reservar debe ser un número entero positivo.`;
+                }
+                if (this.habitacionesDisponibles >= cantidad) {
+                    this.habitacionesDisponibles -= cantidad;
+                    return ` Éxito: Se reservaron ${cantidad} habs. Quedan ${this.habitacionesDisponibles} disp.`;
+                } else {
+                    return ` Fallo: No se pudo reservar ${cantidad} habs. Solo quedan ${this.habitacionesDisponibles} disp.`;
+                }
+            }
+
+            liberar(cantidad) {
+                if (typeof cantidad !== 'number' || !Number.isInteger(cantidad) || cantidad <= 0) {
+                    return ` Error: La cantidad a liberar debe ser un número entero positivo.`;
+                }
+
+                const nuevaDisponibilidad = this.habitacionesDisponibles + cantidad;
+
+                if (nuevaDisponibilidad <= this.totalHabitaciones) {
+                    this.habitacionesDisponibles = nuevaDisponibilidad;
+                    return ` Liberación exitosa: Se liberaron ${cantidad} habs. Total disponibles: ${this.habitacionesDisponibles}.`;
+                } else {
+                    return ` Advertencia: No se puede liberar esa cantidad. Máximo de ${this.totalHabitaciones} habs.`;
+                }
+            }
+
+            info() {
+                const habitacionesOcupadas = this.totalHabitaciones - this.habitacionesDisponibles;
+
+                return `
+Hotel: ${this.nombre} (${this.ciudad})
+Capacidad Total: ${this.totalHabitaciones}
+Disponibles: ${this.habitacionesDisponibles}
+Ocupadas: ${habitacionesOcupadas}
+                `.trim();
+            }
+        }
+
+        const hotelInteractivo = new Hotel("Andes Plaza", "La Paz", 8);
+
+        function ejecutarMetodo(accion) {
+            const cantidadInput = document.getElementById('cantidadHab');
+            const cantidad = parseInt(cantidadInput.value);
+            const resultadoElement = document.getElementById('hotelResultado');
+            let mensajeOperacion = "";
+
+            if (accion === 'reservar') {
+                mensajeOperacion = hotelInteractivo.reservar(cantidad);
+            } else if (accion === 'liberar') {
+                mensajeOperacion = hotelInteractivo.liberar(cantidad);
+            }
+
+            let infoHotel = hotelInteractivo.info();
+
+            if (accion === 'info') {
+                resultadoElement.innerHTML = `<span style="color: #4EC9B0;">${infoHotel.replace(/\n/g, '<br>')}</span>`;
+            } else {
+                resultadoElement.innerHTML = `<span style="color: #F8F8A7;">${mensajeOperacion}</span><br><br>--- Estado Actual ---<br><span style="color: #4EC9B0;">${infoHotel.replace(/\n/g, '<br>')}</span>`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            mostrarClima(); 
+
+            const resultadoElement = document.getElementById('hotelResultado');
+            resultadoElement.innerHTML = `<span style="color: #4EC9B0;">${hotelInteractivo.info().replace(/\n/g, '<br>')}</span>`;
+        });
+
+    </script>
 </body>
+
 </html>

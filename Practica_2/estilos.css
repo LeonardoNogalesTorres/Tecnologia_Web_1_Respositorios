@@ -1,0 +1,82 @@
+/* Practica_2/estilos.css */
+
+body {
+    font-family: 'Consolas', 'Courier New', monospace; /* Fuente que simula código */
+    background-color: #1e1e1e; /* Fondo oscuro (tema de editor de código) */
+    color: #d4d4d4; /* Color de texto claro */
+    margin: 20px;
+}
+
+h1 {
+    color: #4EC9B0; /* Color que simula una declaración de función en JS */
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
+}
+
+h2 {
+    color: #C586C0; /* Color que simula una variable o clase */
+    margin-top: 30px;
+}
+
+.ejercicio {
+    background-color: #252526; /* Fondo de sección ligeramente más claro */
+    border: 1px solid #3c3c3c;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    color: #9CDCFE; /* Color para etiquetas */
+}
+
+input[type="number"] {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #fff;
+    padding: 8px;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+button {
+    background-color: #6A9955; /* Un verde de éxito o ejecución */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #79a865;
+}
+
+.resultado {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #333333; /* Fondo para el área de resultados */
+    font-weight: bold;
+    color: #F8F8A7; /* Amarillo/oro para el resultado del código */
+    white-space: pre-wrap; /* Mantiene saltos de línea para Fizz-Buzz */
+    border-left: 3px solid #6A9955;
+}
+
+.boton-regreso {
+    background-color: #569CD6; /* Color azul para botón de navegación */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none; /* Quitar el subrayado del enlace */
+    display: inline-block;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.boton-regreso:hover {
+    background-color: #61A5DB;
+}
