@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salar de Uyuni: Información Turística</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <h1 id="nombre-destino">Cargando Destino...</h1>
+            <p id="descripcion-corta-data"></p>
+        </header>
+        
+        <div class="navegacion-superior">
+            <a href="../index.html" class="boton-volver">
+                ← Volver al Portal de Asignaciones
+            </a>
+        </div>
+        <div class="info-clave">
+            <div>
+                <strong>País</strong>
+                <span id="pais-data"></span>
+            </div>
+            <div>
+                <strong>Altitud</strong>
+                <span id="altitud-data"></span>
+            </div>
+            <div>
+                <strong>Mejor Época</strong>
+                <span id="epoca-data"></span>
+            </div>
+            <div>
+                <strong>Precio Tour</strong>
+                <span id="precio-data"></span>
+            </div>
+        </div>
+
+        <section class="descripcion">
+            <h2>Descripción Detallada</h2>
+            <p id="descripcion-data"></p>
+        </section>
+
+        <section class="actividades">
+            <h2>Actividades Principales</h2>
+            <ul id="actividades-lista"></ul>
+        </section>
+
+        <section class="gastronomia">
+            <h2>Gastronomía Recomendada</h2>
+            <ul id="gastronomia-lista"></ul>
+        </section>
+
+        <section class="consejos">
+            <h2>Consejos Importantes</h2>
+            <ul id="consejos-lista"></ul>
+        </section>
+
+    </div>
+
+    <script>
+        const JSON_URL = 'https://raw.githubusercontent.com/LeonardoNogalesTorres/actividad_turismo_json/main/uyuni.json'; 
+
+        async function cargarDatosUyuni() {
+            try {
+                const response = await fetch(JSON_URL);
+                const data = await response.json();
+                const destino = data.lugarTuristico;
+
+                const rellenarLista = (id, items) => {
+                    const ul = document.getElementById(id);
+                    ul.innerHTML = '';
+                    items.forEach(item => {
+                        const li = document.createElement('li');
+                        li.textContent = item;
+                        ul.appendChild(li);
+                    });
+                };
+
+                document.getElementById('nombre-destino').textContent = destino.nombre;
+                document.getElementById('descripcion-corta-data').textContent = destino.descripcionCorta;
+                document.getElementById('descripcion-data').textContent = destino.descripcionDetallada;
+
+                document.getElementById('pais-data').textContent = destino.ubicacion.pais;
+                document.getElementById('altitud-data').textContent = `${destino.ubicacion.altitudMetros} msnm`;
+                document.getElementById('epoca-data').textContent = destino.mejorEpocaVisita.split('(')[0].trim();
+                document.getElementById('precio-data').textContent = destino.informacionGeneral.precioEstimadoTourDia;
+                
+                rellenarLista('actividades-lista', destino.actividadesPrincipales);
+                rellenarLista('gastronomia-lista', destino.gastronomiaRecomendada);
+                rellenarLista('consejos-lista', destino.informacionGeneral.consejos);
+
+            } catch (error) {
+                console.error("Hubo un error al cargar o parsear el JSON:", error);
+                document.getElementById('nombre-destino').textContent = 'Error al cargar los datos turísticos.';
+            }
+        }
+
+        cargarDatosUyuni();
+    </script>
+</body>
+</html>
